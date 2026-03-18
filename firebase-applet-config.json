@@ -1,0 +1,10 @@
+{
+  "projectId": "worlpoliticsonline",
+  "appId": "1:843870060291:web:d76145e56b7871fdd9f336",
+  "apiKey": "AIzaSyBkqaQJMrrzMKND57fMpzuxt7nK6gpOzs4",
+  "authDomain": "worlpoliticsonline.firebaseapp.com",
+  "firestoreDatabaseId": "ai-studio-390cbbd0-5e0b-4c9e-95df-a6031930abfe",
+  "storageBucket": "worlpoliticsonline.firebasestorage.app",
+  "messagingSenderId": "843870060291",
+  "measurementId": ""
+}

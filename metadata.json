@@ -1,0 +1,7 @@
+{
+  "name": "DeutschPronounce V1",
+  "description": "A German language learning app that evaluates your pronunciation from A1 to C2 levels with real-time feedback and progress tracking.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

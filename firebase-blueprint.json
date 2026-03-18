@@ -1,0 +1,60 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "User Profile",
+      "description": "Stores user progress and preferences.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Firebase Auth UID" },
+        "displayName": { "type": "string" },
+        "currentLevel": { "type": "string", "enum": ["Letters", "Numbers", "Words", "A1", "A2", "B1", "B2", "C1", "C2"] },
+        "totalScore": { "type": "number" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "currentLevel"]
+    },
+    "PronunciationScore": {
+      "title": "Pronunciation Score",
+      "description": "Record of a single pronunciation attempt.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "phrase": { "type": "string" },
+        "level": { "type": "string" },
+        "score": { "type": "number", "description": "Score from 0 to 100" },
+        "feedback": { "type": "string" },
+        "suggestions": { "type": "array", "items": { "type": "string" } },
+        "transcription": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "phrase", "score", "timestamp"]
+    },
+    "AudioCache": {
+      "title": "Audio Cache",
+      "description": "Cached audio for phrases to ensure consistency.",
+      "type": "object",
+      "properties": {
+        "phrase": { "type": "string" },
+        "voice": { "type": "string" },
+        "audioData": { "type": "string", "description": "Base64 encoded audio" },
+        "mimeType": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["phrase", "voice", "audioData", "mimeType"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profile document"
+    },
+    "/scores/{scoreId}": {
+      "schema": "PronunciationScore",
+      "description": "Pronunciation attempt records"
+    },
+    "/audio_cache/{phraseId}": {
+      "schema": "AudioCache",
+      "description": "Cached audio for phrases"
+    }
+  }
+}
